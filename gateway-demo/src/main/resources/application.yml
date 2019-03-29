@@ -1,0 +1,29 @@
+server:
+  port: 8083
+  
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka/
+
+spring:
+  application:
+    name: gateway-demo
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          lower-case-service-id: true
+          enabled: false
+      routes:
+      - id: feign-client
+        uri: http://127.0.0.1:8080
+        predicates:
+          - Path=/hello/**
+
+logging:
+  level:
+     org.springframework.cloud.gateway: debug
+     
+     
+      
