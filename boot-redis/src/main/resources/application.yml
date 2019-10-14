@@ -1,0 +1,34 @@
+server:
+  port: 8089
+  tomcat:
+    max-threads: 800
+    min-spare-threads: 25
+    max-connections: 10000
+spring:
+    datasource: 
+        type: com.alibaba.druid.pool.DruidDataSource
+        name: test
+        url: jdbc:mysql://127.0.0.1:3306/test?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8
+        username: root
+        password: 123456
+        driver-class-name: com.mysql.jdbc.Driver
+        initialSize: 300
+        minIdle: 100
+        maxActive: 1000
+        maxWait: 60000
+        timeBetweenEvictionRunsMillis: 60000
+        minEvictableIdleTimeMillis: 30000
+        validationQuery: SELECT 1 FROM DUAL
+        testWhileIdle: true
+        testOnBorrow: false
+        #exceptionSorter: true
+        testOnReturn: false
+        poolPreparedStatements: true
+        #filter: stat,wall,log4j
+        maxPoolPreparedStatementPerConnectionSize: 20
+        connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+        useGlobalDataSourceStat: true
+mybatis:
+  mapper-locations: classpath:mapping/*Mapper.xml
+  type-aliases-package: com.cn.demo.test01.pojo
+  
