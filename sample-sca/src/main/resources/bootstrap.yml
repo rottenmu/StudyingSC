@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: sample-sca
+    nacos:
+      config:
+        server-addr: 106.13.201.243:8848
+        group: DEFAULT_GROUP
+        file-extension: yaml

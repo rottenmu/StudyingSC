@@ -1,0 +1,14 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: sample-sca
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 106.13.201.243:8848
+        group: DEFAULT_GROUP
+    sentinel:
+      transport:
+        port: 8719
+        dashboard: 106.13.201.243:8080
