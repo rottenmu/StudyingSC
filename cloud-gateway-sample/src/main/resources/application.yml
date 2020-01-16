@@ -16,19 +16,21 @@ spring:
         transport:
           port: 8719
           dashboard: 106.13.201.243:8080
-      gateway:
-        discovery:
-          locator:
-            lower-case-service-id: true
-            enabled: true
-        routes:
-          - id: host_route
-            uri: lb://sample-sca
-            predicates:
-              - Path=/sca/**  #/hello/{name}
+#      gateway:
+#        discovery:
+#          locator:
+#            lower-case-service-id: true
+#            enabled: true
+#        routes:
+#          - id: host_route
+#            uri: lb://sample-sca
+#            predicates:
+#              - Path=/sca/**  #/hello/{name}
 #            filters:
 #              - StripPrefix=1
-
 logging:
   level:
-     org.springframework.cloud.gateway: debug
+    org.springframework.cloud.gateway: TRACE
+    org.springframework.http.server.reactive: DEBUG
+    org.springframework.web.reactive: DEBUG
+    reactor.ipc.netty: DEBUG
